@@ -69,5 +69,6 @@ Newton|Donald|10|80000|370000|
 |peterson|michael|20|90000|155000|
 |Jeffrey|Thomas|30|300000|300000|
 |Wong|Theresa|30|70000|370000|
-|Newton|Frances|75000|75000|
+|Newton|Frances| |75000|75000|
 
+The outer **order by** clause does not in any way effect the calculation of department_total, it only sorts the end result according to the column order specified.
