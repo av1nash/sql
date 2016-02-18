@@ -39,7 +39,7 @@ order by last_name, first_name;
 |Eckhardt|Emily|100000|100000|
 |Friedli|Roger|60000|160000|
 |James|Betsy|60000|220000|
-|Jeffrey|Thomas |300000|520000|
+|Jeffrey|Thomas|300000|520000|
 |Michaels|Matthew|70000|590000|
 Newton|Donald|80000|670000|
 Newton|Frances|75000|745000|
@@ -60,8 +60,8 @@ order by department_id, last_name, first_name;
 |LAST_NAME|FIRST_NAME|DEPARTMENT_ID|SALARY|DEPARTMENT_TOTAL|
 |---------|:--------:|:-----------:|:----:|---------------:|
 |Dovichi|Lori|10| | |
-|Eckhardt|Emily||10|100000|100000|
-|Friedli|Roger||10|60000|160000|
+|Eckhardt|Emily|10|100000|100000|
+|Friedli|Roger|10|60000|160000|
 |James|Betsy|10|60000|220000|
 |Michaels|Matthew|10|70000|290000|
 Newton|Donald|10|80000|370000|
@@ -72,3 +72,25 @@ Newton|Donald|10|80000|370000|
 |Newton|Frances| |75000|75000|
 
 The outer **order by** clause does not in any way effect the calculation of department_total, it only sorts the end result according to the column order specified.
+
+But we can manipulate the department total by changing the inner **order by** clause
+```sql
+select last_name, first_name, department_id, salary,
+SUM (salary) OVER (PARTITION BY department_id ORDER BY salary) department_total
+from employee
+order by department_id,salary, last_name, first_name;
+```
+|LAST_NAME|FIRST_NAME|DEPARTMENT_ID|SALARY|DEPARTMENT_TOTAL|
+|---------|:--------:|:-----------:|:----:|---------------:|
+|Friedli|Roger|10|60000|120000|
+|James|Betsy|10|60000|120000|
+|Michaels|Matthew|10|70000|190000|
+|Newton|Donald|10|80000|270000|
+|Eckhardt|Emily|10|100000|370000|
+|Dovichi|Lori|10|370000|
+|leblanc|mark|20|65000|65000|
+|peterson|michael|20|90000|155000|
+|Wong|Theresa|30|70000|70000|
+|Jeffrey|Thomas|30|300000|370000|
+|Newton|Frances|75000|75000|
+
