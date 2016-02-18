@@ -123,4 +123,32 @@ order by department_id, last_name, first_name;
 |Wong|Theresa|30|70000|370000|
 |Newton|Frances| |75000|75000|
 
+Windowing clause provides following two views of data:
+1. Anchored view - When you use only an ORDER BY clause, it begins with the first row of the partition and ends with the current row being processed.
+2. Sliding view - When the value being calculated (e.g. department_total) can change depending on how the data is sorted within each partition.
+
+Let's look at the **RANGE** windowing clause which provides a sliding view of the data
+
+```sql
+select last_name, first_name, department_id, hire_date, salary,
+SUM (salary) OVER (PARTITION BY department_id ORDER BY hire_date RANGE 90 PRECEDING) department_total
+from employee
+order by department_id, hire_date;
+```
+
+In above query we want to sort our partition by hire_date and apply our aggregate function SUM() on a window of hire dates which are in the range of **90** days preceding the hire_dt on current row.
+
+|LAST_NAME|FIRST_NAME|DEPARTMENT_ID|HIRE_DATE|SALARY|DEPARTMENT_TOTAL|
+|---------|:--------:|:-----------:|:-------:|:----:|---------------:|
+|Eckhardt|Emily|10|07-JUL-04|100000|100000|
+|Newton|Donald|10|24-SEP-06|80000|80000|
+|James|Betsy|10|16-MAY-07|60000|190000|
+|Friedli|Roger|10 |16-MAY-07|60000|190000|
+|Michaels|Matthew|10 |16-MAY-07|70000|190000|
+|Dovichi|Lori|10 |07-JUL-11| | |
+|peterson|michael|20 |03-NOV-08|90000|90000|
+|leblanc|mark|20 |06-MAR-09|65000|65000|
+|Jeffrey|Thomas|30 |27-FEB-10|300000|300000|
+|Wong|Theresa|30 |27-FEB-10|70000|370000|
+|Newton|Frances| |14-SEP-05|75000|75000|
 
