@@ -47,3 +47,27 @@ Wong|Theresa|70000|815000|
 leblanc|mark|65000|880000|
 peterson|michael|90000|970000|
 
+What if my data set has a department ID and i want to see cumulative salary tatal by department ?
+
+I can use **Query Partition Clause** to ensure that the analytic function is applied independently to each department.
+
+```sql
+select last_name, first_name, department_id, salary,
+SUM (salary) OVER (PARTITION BY department_id ORDER BY last_name, first_name) department_total
+from employee
+order by department_id, last_name, first_name;
+```
+|LAST_NAME|FIRST_NAME|DEPARTMENT_ID|SALARY|DEPARTMENT_TOTAL|
+|---------|:--------:|:-----------:|:----:|---------------:|
+|Dovichi|Lori|10| | |
+|Eckhardt|Emily||10|100000|100000|
+|Friedli|Roger||10|60000|160000|
+|James|Betsy|10|60000|220000|
+|Michaels|Matthew|10|70000|290000|
+Newton|Donald|10|80000|370000|
+|leblanc|mark|20|65000|65000|
+|peterson|michael|20|90000|155000|
+|Jeffrey|Thomas|30|300000|300000|
+|Wong|Theresa|30|70000|370000|
+|Newton|Frances|75000|75000|
+
