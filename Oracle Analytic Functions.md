@@ -11,8 +11,8 @@ The group of rows is called a **window** and that is how they are different from
 
 E.g. SUM (salary) OVER (ORDER BY last_name, first_name) running_total
 
-*Aggregate function: SUM()
-*Column/Expression: salary
+* Aggregate function: SUM()
+* Column/Expression: salary
 
 ####Breaking down analytic clause
 
@@ -20,8 +20,8 @@ E.g. SUM (salary) OVER (ORDER BY last_name, first_name) running_total
 
 Continuing where we left off in the above example:
 
-*Query partition clause: Not used
-*order by clause: ORDER BY last_name, first_name
-*windowing_clause: Not used
+* Query partition clause: Not used
+* order by clause: ORDER BY last_name, first_name
+* windowing_clause: Not used
 
 [Example code from article written by Melanie Caffrey](http://www.oracle.com/technetwork/issue-archive/2013/13-mar/o23sql-1906475.html)
