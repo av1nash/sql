@@ -87,10 +87,10 @@ order by department_id,salary, last_name, first_name;
 |Michaels|Matthew|10|70000|190000|
 |Newton|Donald|10|80000|270000|
 |Eckhardt|Emily|10|100000|370000|
-|Dovichi|Lori|10|370000|
+|Dovichi|Lori|10| |370000|
 |leblanc|mark|20|65000|65000|
 |peterson|michael|20|90000|155000|
 |Wong|Theresa|30|70000|70000|
 |Jeffrey|Thomas|30|300000|370000|
-|Newton|Frances|75000|75000|
+|Newton|Frances| |75000|75000|
 
