@@ -13,6 +13,7 @@ E.g. SUM (salary) OVER (ORDER BY last_name, first_name) running_total
 
 * Aggregate function: SUM()
 * Column/Expression: salary
+* **Over** clause identifies SUM() as an analytic function as opposed to an aggregate function
 
 ####Breaking down analytic clause
 
@@ -21,7 +22,7 @@ E.g. SUM (salary) OVER (ORDER BY last_name, first_name) running_total
 Continuing where we left off in the above example:
 
 * Query partition clause: Not used
-* order by clause: ORDER BY last_name, first_name
+* ORDER BY clause (_ORDER BY last_name, first_name_) identifies the piece of data this analytic function will be performed over
 * windowing_clause: Not used
 
 [Example code from article written by Melanie Caffrey](http://www.oracle.com/technetwork/issue-archive/2013/13-mar/o23sql-1906475.html)
@@ -45,3 +46,4 @@ Newton|Frances|75000|745000|
 Wong|Theresa|70000|815000|
 leblanc|mark|65000|880000|
 peterson|michael|90000|970000|
+
