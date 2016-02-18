@@ -82,15 +82,45 @@ order by department_id,salary, last_name, first_name;
 ```
 |LAST_NAME|FIRST_NAME|DEPARTMENT_ID|SALARY|DEPARTMENT_TOTAL|
 |---------|:--------:|:-----------:|:----:|---------------:|
-|Friedli|Roger|10|60000|120000|
-|James|Betsy|10|60000|120000|
+|Friedli|Roger|10|60000|**120000**|
+|James|Betsy|10|60000|**120000**|
 |Michaels|Matthew|10|70000|190000|
 |Newton|Donald|10|80000|270000|
 |Eckhardt|Emily|10|100000|370000|
-|Dovichi|Lori|10| |370000|
+|Dovichi|Lori|10| |**370000**|
 |leblanc|mark|20|65000|65000|
 |peterson|michael|20|90000|155000|
 |Wong|Theresa|30|70000|70000|
 |Jeffrey|Thomas|30|300000|370000|
 |Newton|Frances| |75000|75000|
+
+You will notice that both Roger and Betsy have same department total, this is because when they are ordered by salary they have exact same numbers for salary and so both are assigned the same department total (which is the sum of their salary).
+
+Also Lori has NULL value for salary and so it is evaluated last and is assigned the highest department_total (running total).
+
+Let's have a look at the windowing clause now, windowing clause lets you control the start & end of window within a particular partition. 
+
+If I have to calculate department_total by adding salary at the current row with salaries of 2 preceding rows, i can use the **ROWS** windowing clause like this:
+
+```sql
+select last_name, first_name, department_id, salary,
+SUM (salary) OVER (PARTITION BY department_id ORDER BY last_name, first_name ROWS 2 PRECEDING) department_total
+from employee
+order by department_id, last_name, first_name;
+  ```
+  
+|LAST_NAME|FIRST_NAME|DEPARTMENT_ID|SALARY|DEPARTMENT_TOTAL|
+|---------|:--------:|:-----------:|:----:|---------------:|
+|Dovichi|Lori|10| | |
+|Eckhardt|Emily|10|100000|100000 (0+100000)|
+|Friedli|Roger|10|60000|160000 (0+100000+60000)|
+|James|Betsy|10|60000|220000 (100000+60000+60000)|
+|Michaels|Matthew|10|70000|190000 (60000+60000+70000)|
+|Newton|Donald|10|80000|210000|
+|leblanc|mark|20|65000|65000|
+|peterson|michael|20|90000|155000|
+|Jeffrey|Thomas|30|300000|300000|
+|Wong|Theresa|30|70000|370000|
+|Newton|Frances| |75000|75000|
+
 
