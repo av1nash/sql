@@ -25,3 +25,23 @@ Continuing where we left off in the above example:
 * windowing_clause: Not used
 
 [Example code from article written by Melanie Caffrey](http://www.oracle.com/technetwork/issue-archive/2013/13-mar/o23sql-1906475.html)
+
+```sql
+select last_name, first_name, salary,
+SUM (salary) OVER (ORDER BY last_name, first_name) running_total
+from employee
+order by last_name, first_name;
+```
+|last_name|first_name|salary|running_total|
+|---------|:--------:|:----:|------------:|
+|Dovichi|Lori| | |
+|Eckhardt|Emily|100000|100000|
+|Friedli|Roger|60000|160000|
+|James|Betsy|60000|220000|
+|Jeffrey|Thomas |300000|520000|
+|Michaels|Matthew|70000|590000|
+Newton|Donald|80000|670000|
+Newton|Frances|75000|745000|
+Wong|Theresa|70000|815000|
+leblanc|mark|65000|880000|
+peterson|michael|90000|970000|
