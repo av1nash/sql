@@ -148,7 +148,7 @@ In above query we want to sort our partition by hire_date and apply our aggregat
 |Dovichi|Lori|10 |07-JUL-11| | |
 |peterson|michael|20 |03-NOV-08|90000|90000|
 |leblanc|mark|20 |06-MAR-09|65000|65000|
-|Jeffrey|Thomas|30 |27-FEB-10|300000|300000|
+|Jeffrey|Thomas|30 |27-FEB-10|300000|370000|
 |Wong|Theresa|30 |27-FEB-10|70000|370000|
 |Newton|Frances| |14-SEP-05|75000|75000|
 
