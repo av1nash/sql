@@ -124,7 +124,9 @@ order by department_id, last_name, first_name;
 |Newton|Frances| |75000|75000|
 
 Windowing clause provides following two views of data:
+
 1. Anchored view - When you use only an ORDER BY clause, it begins with the first row of the partition and ends with the current row being processed.
+
 2. Sliding view - When the value being calculated (e.g. department_total) can change depending on how the data is sorted within each partition.
 
 Let's look at the **RANGE** windowing clause which provides a sliding view of the data
