@@ -155,5 +155,7 @@ In above query we want to sort our partition by hire_date and apply our aggregat
 |Newton|Frances| |14-SEP-05|75000|75000|
 
 ```
-Note: I have sort of compiled this text from Oracle's reference page and Oracle magazine article for my own personal use (so that i can quickly refresh my memory about a concept). Hopefully you (the reader) will also find it useful. I have tried to include the links to the reference page and give due credits wherever applicable. If i missed out something, please inform me and I will sort it out.
+Note: I have sort of compiled this text from Oracle's reference page and Oracle magazine article for my own personal use (so that i
+can quickly refresh my memory about a concept). Hopefully you (the reader) will also find it useful. I have tried to include the links
+to the reference page and give due credits wherever applicable. If i missed out something, please inform me and I will sort it out.
 ```
