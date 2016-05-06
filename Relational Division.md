@@ -100,6 +100,7 @@ SELECT * FROM DBProject WHERE EXISTS
 )
 ```
 Output of this query is:
+
 | Task |
 ---
 |Database1|
@@ -115,6 +116,7 @@ SELECT * FROM DBProject WHERE NOT EXISTS
 )
 ```
 And you know the answer to that one - "Yes, Eugene has not completed Task - Database2"
+
 | Task |
 ---
 |Database2|
