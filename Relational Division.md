@@ -73,6 +73,7 @@ WHERE NOT EXISTS
 
 Let's diseect the second query since first one is pretty self explanatory
 SQL will look at the first record in Completed c1 table and try to link/join that with Completed c2 table on Student. Let us say that the first Student was picked up as 'Fred'. When joined with Completed c2 table we should get three rows:
+
 |Student|Task|
 --- | --- |
 Fred|Database1
