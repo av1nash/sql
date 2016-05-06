@@ -14,4 +14,4 @@ But for most practical purposes of coding, you can rely on this order.
 11. TOP
 12. OFFSET/FETCH
 
-**For Example:** Since ORDER BY clause comes after SELECT CLAUSE, you can use a calculation like *count(*) as cnt* in your ORDER BY clause *ORDER BY cnt*
+**For Example:** Since ORDER BY clause comes after SELECT CLAUSE, you can use a calculation like *count( \* ) as cnt* in your ORDER BY clause *ORDER BY cnt*
