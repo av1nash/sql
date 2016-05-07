@@ -1,6 +1,6 @@
-```sql
 [Word List](http://www.gutenberg.org/files/3201/files/COMMON.txt)
 
+```sql
 CREATE TABLE dict
 (
 	w VARCHAR(50),
@@ -50,7 +50,9 @@ SET h =
 		WHERE i<=LENGTH(w)
 )
 
+
 **Quadratic Hash Function**
+
 
 ```sql
 UPDATE dict
