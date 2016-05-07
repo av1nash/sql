@@ -75,7 +75,7 @@ SET h =
 ```
 
 **Exponential Hash Function**
-BIGINT in MySQL is of 8 bytes (8*8 = 64 bits)
+BIGINT in MySQL is of 8 bytes (8x8 = 64 bits)
 2^63 ..... 2^2,2^1,2^0
 So you can say that there are slots from 0 - 63 where you can put one alphabet, lets say that we put a at slot 0 and b in slot 1 and so on such that slot 25 is occupied by z
 If we apply this hash function to a word say "abc" we get a value 6 and if the word is bc, well we again get 6. This is not very accurate.
