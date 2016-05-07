@@ -49,10 +49,11 @@ SET h =
 		FROM integers
 		WHERE i<=LENGTH(w)
 )
-```sql
+```
 
 **Quadratic Hash Function**
 
+```sql
 UPDATE dict
 SET h = 
 (
