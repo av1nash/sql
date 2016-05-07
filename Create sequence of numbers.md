@@ -23,3 +23,6 @@ BEGIN
 END;
 ```
 
+```sql
+CALL dowhile()
+```
