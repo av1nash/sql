@@ -46,7 +46,7 @@ SELECT SUM(ORD(SUBSTRING('rat',i,1)))
 FROM integers
 WHERE i<=LENGTH('rat');
 ```
-Output:
+**Output:**
 327
 
 **Linear Hash Function**
